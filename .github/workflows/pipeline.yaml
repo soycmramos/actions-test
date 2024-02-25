@@ -19,12 +19,15 @@ jobs:
   Test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Chekout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - name: Setup Nodejs environment
+        uses: actions/setup-node@v4
         with:
           node-version: 'latest'
+      - name: Install dependencies
         run: yarn install
       - name: Testing
         run: yarn test
@@ -34,14 +37,15 @@ jobs:
     needs: ['Test']
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Chekout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - name: Setup Nodejs environment
+        uses: actions/setup-node@v4
         with:
           node-version: 'latest'
+      - name: Install dependencies
         run: yarn install
-      - name: Testing
-        run: yarn test
       - name: Deploy
         run: echo Deploy
