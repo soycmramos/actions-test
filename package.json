@@ -1,9 +1,9 @@
 {
-  "name": "github-actions-test",
+  "name": "actions-test",
   "type": "module",
   "version": "1.0.1",
   "main": "index.js",
-  "repository": "https://github.com/soycmramos/github-actions-test.git",
+  "repository": "https://github.com/soycmramos/actions-test.git",
   "author": "cmramos <carlosmarioramos34@gmail.com>",
   "license": "MIT",
   "scripts": {
