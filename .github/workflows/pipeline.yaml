@@ -1,6 +1,8 @@
 name: Deployment Pipeline
 
 on:
+  push:
+    branches: [main]  
   pull_request:
     branches: [main]
     types: [opened, synchronize]
@@ -31,7 +33,7 @@ jobs:
         run: yarn test
 
   Deploy:
-    if: ${{ github.event_name == 'pull_request' }}
+    if: ${{ github.event_name == 'push' }}
     needs: ['Test']
     runs-on: ubuntu-latest
     steps:
