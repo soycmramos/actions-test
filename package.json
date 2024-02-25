@@ -1,10 +1,10 @@
 {
   "name": "actions-test",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/soycmramos/actions-test.git",
-  "author": "cmramos <carlosmarioramos34@gmail.com>",
+  "author": "soycmramos <carlosmarioramos34@gmail.com>",
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon ./src/index.js",
