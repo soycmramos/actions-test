@@ -57,7 +57,7 @@ jobs:
         run: echo Deploy
 
   Print_Variable:
-  needs: ['Test']
-  runs-on: ubuntu-latest
-  steps:
-    run: echo "Value = ${{ secrets.ENV_VARIABLE }}"
+    needs: ['Test']
+    runs-on: ubuntu-latest
+    steps:
+      run: echo "Value = ${{ secrets.ENV_VARIABLE }}"
