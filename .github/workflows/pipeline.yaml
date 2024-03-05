@@ -1,10 +1,16 @@
 name: Deployment Pipeline
 
+# on:
+#   push:
+#     branches: [main]  
+#   pull_request:
+#     branches: [main]
+#     types: [opened, synchronize]
 on:
   push:
-    branches: [main]  
+    branches: [feature]
   pull_request:
-    branches: [main]
+    branches: [feature]
     types: [opened, synchronize]
 
 jobs:
@@ -49,3 +55,9 @@ jobs:
         run: yarn install
       - name: Deploy
         run: echo Deploy
+
+  Print_Variable:
+  needs: ['TEST']
+  runs-on: ubuntu-latest
+  steps:
+    run: echo "Value = ${{ secrets.ENV_VARIABLE }}"
