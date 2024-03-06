@@ -29,10 +29,12 @@ jobs:
           node-version: latest
       - name: Install dependencies
         run: yarn install
-      - name: Run tests
+      - name: Set variables
         env:
           PORT: ${{ secrets.PORT }}
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
+        run: "echo ${{ secrets.PORT }} - ${{ secrets.JWT_SECRET }}"
+      - name: Run tests
         run: yarn test
 
   Deploy:
