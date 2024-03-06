@@ -34,8 +34,8 @@ jobs:
   #       run: yarn test
 
   Deploy:
-    if: ${{ github.event_name == 'push' }}
-    needs: ['Test']
+    # if: ${{ github.event_name == 'push' }}
+    # needs: ['Test']
     runs-on: ubuntu-latest
     steps:
       - name: Chekout
