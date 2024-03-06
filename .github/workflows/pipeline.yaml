@@ -12,26 +12,25 @@ jobs:
         uses: styfle/cancel-workflow-action@0.9.1
         with:
           token: ${{ github.token }}
-
-  # Test:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Chekout
-  #       uses: actions/checkout@v4
-  #       with:
-  #         fetch-depth: 0
-  #     - name: Setup Nodejs environment
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: 'latest'
-  #     - name: Install dependencies
-  #       run: yarn install
-  #     - name: Set env variables
-  #       env:
-  #         PORT: ${{ secrets.PORT }}
-  #         JWT_SECRET: ${{ secrets.JWT_SECRET }}
-  #     - name: Run tests
-  #       run: yarn test
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Chekout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Nodejs environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'latest'
+      - name: Install dependencies
+        run: yarn install
+      - name: Set env variables
+        env:
+          PORT: ${{ secrets.PORT }}
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+      - name: Run tests
+        run: yarn test
 
   Deploy:
     # if: ${{ github.event_name == 'push' }}
