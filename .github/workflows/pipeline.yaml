@@ -29,12 +29,10 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Set ENV variables
+      - name: Run tests
         env:
           PORT: ${{ secrets.PORT }}
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
-
-      - name: Run tests
         run: yarn test
 
   Deploy:
