@@ -17,7 +17,11 @@ app.get('/', (req, res) => {
       day: "numeric",
       month: "long",
       year: "numeric",
-    })
+    }),
+    env_variables: {
+      PORT: process.env.PORT,
+      JWT_SECRET: process.env.JWT_SECRET
+    }
   })
 })
 
