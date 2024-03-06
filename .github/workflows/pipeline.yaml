@@ -20,14 +20,22 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: Setup Nodejs environment
         uses: actions/setup-node@v4
         with:
           node-version: 'latest'
-      - name: Install dependencies and run tests
-        run: |
-          yarn install
-          PORT=${{ secrets.PORT }} JWT_SECRET=${{ secrets.JWT_SECRET }} yarn test
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Set ENV variables
+        env:
+          PORT: ${{ secrets.PORT }}
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+
+      - name: Run tests
+        run: yarn test
 
   Deploy:
     if: ${{ github.event_name == 'push' }}
@@ -38,11 +46,14 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: Setup Nodejs environment
         uses: actions/setup-node@v4
         with:
           node-version: 'latest'
+
       - name: Install dependencies
         run: yarn install
+
       - name: Deploy
         run: echo "Deploy"
